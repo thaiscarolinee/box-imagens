@@ -65,7 +65,7 @@ html, body {
     cursor: pointer;
     padding: 13px 15px;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 1px;
     transition: 0.3s;
     outline: none;
 }
