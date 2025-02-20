@@ -1,0 +1,124 @@
+/* Reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Garante que o body e o HTML ocupem toda a tela */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita barras de rolagem */
+}
+
+/* Container do slider ocupando toda a tela */
+.slider-container {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Cada slide ocupa 100% da tela */
+.slide {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Esconde o slide, mas mantém a interação */
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out; /* Transição suave */
+}
+
+/* Torna a imagem responsiva e cobre toda a tela */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mostrar o slide ativo */
+.slide.active {
+    opacity: 1;
+    visibility: visible; /* Torna o slide visível */
+}
+
+/* Botões de navegação */
+.buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+}
+
+/* Estilo dos botões */
+.buttons button {
+    border: 2px solid #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+    padding: 13px 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: 0.3s;
+    outline: none;
+}
+
+/* Hover nos botões */
+.buttons button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Ajuste para garantir que os botões fiquem sobre a imagem */
+#prev {
+    position: absolute;
+    left: 20px;
+}
+
+#next {
+    position: absolute;
+    right: 20px;
+}
+
+/* Estilo da overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com 50% de opacidade */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease-in-out; /* Transição suave */
+}
+
+/* Efeito de hover na imagem */
+.slide:hover .overlay {
+    opacity: 1; /* Torna a overlay visível */
+}
+
+/* Estilo do texto dentro da overlay */
+.overlay p {
+    font-size: 24px;
+    text-align: center;
+    word-wrap: break-word; /* Quebra a linha quando o texto for longo */
+    overflow-wrap: break-word; /* Garante a quebra de palavra quando necessário */
+    white-space: normal; /* Garante que o texto pode quebrar em várias linhas */
+    display: flex;
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    align-items: center; /* Centraliza o texto verticalmente */
+    height: 100%; /* Faz o texto ocupar todo o espaço da overlay */
+    padding: 0 80px; /* Adiciona espaçamento nas laterais (pode ajustar conforme necessário) */
+}
+
